@@ -1,3 +1,12 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -26,6 +35,80 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.canvas-container {
+  background-color: #050816;
+  flex: 1;
+  height: 100vh;
+  width: 90vw;
+}
+
+.btn {
+  background-color: #61dafb;
+  height: 40px;
+  color: white;
+  border: none; 
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-list-container {
+  background-color: #050816;
+  color: white;
+  height: 100vh;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.sat-list {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.list-group {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.list-group-item {
+  background-color: #050816;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.list-group-item {
+  background-color: #050816;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
