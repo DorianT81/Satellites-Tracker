@@ -18,10 +18,35 @@ function App() {
     console.log('Liste des satellites à afficher : ', slicedSatList);
   } 
 
+  function select1000Random() {
+    setSlicedSatList([]);
+    let tempList = [];
+    for (let i=0; i<=3000;i++) {
+      const randomInt = Math.floor(Math.random() * 5) + 1;
+      if (sat[i * randomInt] != undefined) {
+        tempList.push(sat[i * randomInt]);
+        setClass(tempList[i], i * randomInt);
+      } else {
+        continue
+      }
+    }
+    setSlicedSatList(tempList);
+  }
+
+  function setClass(satellite, index) {
+    // Logique pour sélectionner un satellite et le mettre en surbrillance dans la scène 3D
+    console.log('Satellite sélectionné :', satellite.OBJECT_NAME);
+    if (document.getElementsByClassName("list-group-item")[index].classList.contains("active")) {
+      document.getElementsByClassName("list-group-item")[index].classList.remove("active");
+    } else {
+
+    document.getElementsByClassName("list-group-item")[index].classList.add("active");
+    }
+    
+  } 
+
  // let slicedSatList = SatList.slice(0, 999); // Affiche seulement les 10 premiers satellites
 
-
-  let [showSat, SetShowSat] = useState(false);
   let SatList = [];
   for (let i = 0; i < sat.length; i++) {
       SatList.push(sat[i]);
@@ -33,26 +58,23 @@ function App() {
 
     // On utilise THree JS pour afficher la Terre et les satellites en 3D
     <div className="container">
-        <div className="btn-list-container" style={{ backgroundColor: "#fff", color: 'white'}}>
+        <div className="btn-list-container" style={{ backgroundImage: "url('satlist/public/voielactee.jpg')", color: 'white' }}>
         <button
-          onClick={() => {
-            SetShowSat(!showSat);
-            console.log('showSat', showSat);
-          }}
           className="btn"
+          onClick={select1000Random}
         >
-          Toggle Satellites
+          Select 1000 Random
         </button>
 
         <List className="sat-list" satellites={sat} onSelectSatellite={handleSelectSatellite} />
         </div>
       <div className="canvas-container">
-        <Canvas camera={{ position: [0, 0, 7], fov: 45 }}>
+        <Canvas camera={{ position: [0, 0, 7], fov: 70 }} style={{ backgroundColor: "black" }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[5, 3, 5]} intensity={2} />
 
           <Earth />
-          {showSat && <Satellites satellites={slicedSatList} />}
+          <Satellites satellites={slicedSatList} />
           <OrbitControls
             enablePan={false}
             minDistance={3}

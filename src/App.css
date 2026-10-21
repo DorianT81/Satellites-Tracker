@@ -84,6 +84,7 @@ body,
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: #0f172a;
 }
 
 .list-group {
@@ -112,7 +113,7 @@ body,
 }
 
 .active{
-  background-color: #61dafb;
+  background-color: #6366f1;
   color: white;
 }
 

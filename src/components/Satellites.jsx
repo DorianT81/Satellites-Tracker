@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { json2satrec, propagate } from 'satellite.js';
 
 function Satellites({ satellites }) {
-  const SCALE = 2 / 6371;
+  const SCALE = 1 / 6371; // Rayon de la terre, facteur 2 pour éloigner les satellites dans la planète
   const meshRef = useRef();
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function Satellites({ satellites }) {
       ref={meshRef}
       args={[null, null, satellites.length]}
     >
-      <sphereGeometry args={[0.05, 16, 16]} />
+      <sphereGeometry args={[0.02, 16, 16]} />
       <meshBasicMaterial color="white" />
     </instancedMesh>
   );
