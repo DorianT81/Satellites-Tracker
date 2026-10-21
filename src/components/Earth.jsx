@@ -1,5 +1,6 @@
 
 import { useTexture } from '@react-three/drei';
+tasdadzadaz
 
 function Earth() {
   const texture = useTexture(
