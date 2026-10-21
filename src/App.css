@@ -111,6 +111,11 @@ body,
   cursor: pointer;
 }
 
+.active{
+  background-color: #61dafb;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
