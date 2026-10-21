@@ -1,6 +1,6 @@
 
 import { useTexture } from '@react-three/drei';
-tasdadzadaz
+import { json2satrec, propagate } from 'satellite.js';
 
 function Earth() {
   const texture = useTexture(

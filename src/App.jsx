@@ -9,13 +9,14 @@ import Satellites from './components/Satellites';
 import List from './components/List';
 
 function App() {
+  
   let [showSat, SetShowSat] = useState(false);
   let SatList = [];
   for (let i = 0; i < sat.length; i++) {
       SatList.push(sat[i]);
   }
 
-  let slicedSatList = SatList.slice(0, SatList.length / 50); // Affiche seulement les 10 premiers satellites
+  let slicedSatList = SatList.slice(0, 999); // Affiche seulement les 10 premiers satellites
 
   return (
     
